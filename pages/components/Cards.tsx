@@ -1,13 +1,24 @@
 import React, { useEffect, useState } from 'react'
 import { phoneNumber } from '../dummy';
 
-const Cards = ({CardData }) => {
+
+type Datable =  {
+
+  title:string,
+  description:string,
+ cardData:[]
+
+} 
+
+
+
+const Cards = ({CardData }:{CardData :Datable}) => {
 
 const [CardDataMap,setCardDataMap] = useState<Datable>();
     
 type Datable =  {
 
-    title:string,
+    title:string | undefined,
     description:string,
    cardData:[]
 
@@ -41,7 +52,7 @@ useEffect(()=>{
           {CardDataMap?.description}      </p>
         </div>
         <div className="px-6 pt-4 pb-2 flex justify-end">
-        <button onClick={()=> BilgiWhatsapp(CardDataMap?.title)} className='btn-primary hover:opacity-70 hover:cursor-alias'>
+        <button onClick={()=> BilgiWhatsapp(CardDataMap?.title ?  CardDataMap?.title : "")} className='btn-primary hover:opacity-70 hover:cursor-alias'>
      Bilgi Al
     </button>
         </div>
