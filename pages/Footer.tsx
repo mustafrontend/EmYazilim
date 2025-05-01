@@ -1,5 +1,5 @@
 import React from 'react'
-import { data } from './dummy'
+import { data } from '../utils/dummy'
 
 const Footer = () => {
     const MenuData = data;

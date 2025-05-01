@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { phoneNumber } from '../dummy';
+import { phoneNumber } from '../../utils/dummy';
 
 
 type Datable =  {

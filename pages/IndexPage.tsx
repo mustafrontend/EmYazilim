@@ -14,7 +14,7 @@ import {
 import React from 'react'
 import Footer from "./Footer";
 import { useRouter } from "next/router";
-import { BilgiWhatsappGlobal } from "./dummy";
+import { BilgiWhatsappGlobal } from "../utils/dummy";
 
 const IndexPage = () => {
 

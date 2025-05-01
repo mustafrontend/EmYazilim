@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react'
  import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {  faSun } from '@fortawesome/free-solid-svg-icons';
-import { data } from './dummy';
+import { data } from '../utils/dummy';
 
 const Header = () => {
 

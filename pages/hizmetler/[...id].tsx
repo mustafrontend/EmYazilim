@@ -2,7 +2,7 @@ import { useRouter } from 'next/router'
 import React, { useEffect, useState } from 'react'
 import Header from '../Header';
 import Footer from '../Footer';
-import { ServicesDummy } from '../dummy';
+import { ServicesDummy } from '../../utils/dummy';
 import Cards from '../components/Cards';
 
 type SingleService = {
