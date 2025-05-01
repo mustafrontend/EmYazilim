@@ -5,79 +5,56 @@ import Footer from '../Footer';
 import { ServicesDummy } from '../dummy';
 import Cards from '../components/Cards';
 
+type SingleService = {
+  Title: string;
+  Description: string;
+  CardData: []; // Eğer CardData'nın tipi belliyse burada detaylandırabilirsin
+};
+
 const Hizmetler = () => {
-
-  type DummyData =  {
-    Title:string,
-    Description:string,
-    CardData:[]
-    }
-
-
   const [queryType, setQueryType] = useState<string | undefined>();
-  const [DummyData, setDummyData] = useState< DummyData | undefined>();
+  const [dummyData, setDummyData] = useState<SingleService | null>(null);
 
   const router = useRouter();
-    
-  console.log(router.query)
 
-  
   useEffect(() => {
-    // Eğer router.query.id bir dizi ise, ilk öğeyi al
     const queryString = Array.isArray(router.query.id) ? router.query.id[0] : router.query.id;
     if (queryString) {
       setQueryType(queryString);
-  
     }
   }, [router.query]);
-  
+
   useEffect(() => {
-    // queryType'ın geçerli bir anahtar olduğuna emin olalım
-    if (queryType && ServicesDummy[queryType]) {
-      setDummyData(ServicesDummy[queryType]);
+    if (queryType && ServicesDummy[queryType as keyof typeof ServicesDummy]) {
+      setDummyData(ServicesDummy[queryType as keyof typeof ServicesDummy] as SingleService);
     } else {
-      // Eğer geçerli bir değer yoksa, dummyData'ya varsayılan bir değer set edebiliriz
       setDummyData(null);
     }
   }, [queryType]);
-
-
-
-
-   
-
+  
 
   return (
     <div>
-    <Header>
+      <Header />
+      <div className='overflow-auto h-[calc(100vh-20.3vh)]'>
+        <div className='main'>
+          <h4 className='font-bold text-3xl text-center mb-4'>
+            {dummyData?.Title || ''}
+          </h4>
+          <p className='text-xl text-center text-gray-700 mb-4'>
+            {dummyData?.Description || ''}
+          </p>
 
-    </Header>
-    <div className='overflow-auto h-[calc(100vh-20.3vh)]' >
-    
-    <div className='main'>
-      
-    <h4 className='font-bold text-3xl  text-center mb-4'>{DummyData?.Title}</h4>
-     <p className=' text-xl  text-center text-gray-700 mb-4'>{DummyData?.Description}</p>
-
-<div className='card  flex flex-row flex-wrap gap-8 wrapper '>
-
-     {DummyData?.CardData.map((x,i) => (
-      <Cards key={i} CardData={x}></Cards>
-
-     ))}
-     </div>
+          <div className='card flex flex-row flex-wrap gap-8 wrapper'>
+            {dummyData?.CardData?.map((x, i) => (
+              <Cards key={i} CardData={x} />
+            ))}
+          </div>
+        </div>
+      </div>
+      <Footer />
     </div>
+  );
+};
 
-
-     
-
-
-    </div>
-    <Footer>
-
-    </Footer>
-    </div>
-  )
-}
-
-export default Hizmetler
+export default Hizmetler;

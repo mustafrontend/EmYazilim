@@ -13,7 +13,7 @@ const Footer = () => {
             <ul className='flex flex-col text-white text-sm'>
                 {MenuData.map((x, i) => (
               <li key={i}>
-                <a href={x.link}>{x.MenuDescription}</a>
+                <a href={x.MenuLınk}>{x.MenuDescription}</a>
               </li>
             )).slice(0, 3)}
                 </ul>

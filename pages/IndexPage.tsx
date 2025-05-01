@@ -11,7 +11,7 @@ import {
   } from "@fortawesome/free-solid-svg-icons";import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
  
 
-import React, { useState } from 'react'
+import React from 'react'
 import Footer from "./Footer";
 import { useRouter } from "next/router";
 import { BilgiWhatsappGlobal } from "./dummy";
@@ -115,7 +115,7 @@ type CardItem = {
       Yazılım çözümleriniz burada başlar. Teknolojik yeniliklerle iş süreçlerinizi kolayca yönetebilir, analiz edebilir ve optimize edebilirsiniz.
     </p>
     <a  onClick={()=> BilgiWhatsappGlobal("Genel ")}  className=" down-hover hover:cursor-alias btn-primary">
-      Bilgi Edin <FontAwesomeIcon icon={faPhone}> </FontAwesomeIcon>
+      Bilgi Edin <FontAwesomeIcon icon={faPhone} />  
     </a>
   </div>
 </div>

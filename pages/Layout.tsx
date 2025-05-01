@@ -1,17 +1,13 @@
-import React from 'react'
- import Header from './Header'
-import IndexPage from './IndexPage'
+import React from 'react';
+import Header from './Header';
 
-
-const Layout = ({children}) => {
+const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
     <div>
-       <Header>
-       </Header>
-       {children}
-
+      <Header />
+      {children}
     </div>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;
